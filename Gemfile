@@ -18,6 +18,7 @@ gem 'spring', group: :development
 
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
+gem 'haml-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'puma'
