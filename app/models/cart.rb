@@ -1,4 +1,4 @@
-class Cart
+class Cart 
 	attr_reader :items
 
 	def self.build_from_hash hash
@@ -19,7 +19,7 @@ class Cart
 
 	def add_item product_id
 		item = @items.find { |item| item.product_id == product_id }
-		if item
+		if item.present?
 			item.increment
 		else
 			@items << CartItem.new(product_id)
@@ -35,11 +35,13 @@ class Cart
 	end
 
 	def serialize
-		items = @items.map do |item|
-			{
-				"product_id" => item.product_id,
-				"quantity" => item.quantity
-			}
+		if items.present?
+			items = @items.map do |item|
+				{
+					"product_id" => item.product_id,
+					"quantity" => item.quantity
+				}
+			end
 		end
 
 		{		
@@ -48,6 +50,6 @@ class Cart
 	end
 
 	def total_price
-		@items.inject(0) { |sum, item| sum + item.total_price }
+		@items.inject(1) { |sum, item| sum + item.total_price }
 	end
 end
