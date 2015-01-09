@@ -19,7 +19,7 @@ class Cart
 
 	def add_item product_id
 		item = @items.find { |item| item.product_id == product_id }
-		if item.present?
+		if item
 			item.increment
 		else
 			@items << CartItem.new(product_id)
@@ -31,7 +31,13 @@ class Cart
 	end
 
 	def count
-		@items.length
+		available_items.length
+	end
+
+	def available_items
+		@items.select do |item|
+			item.product.present?
+		end
 	end
 
 	def serialize
@@ -46,7 +52,7 @@ class Cart
 		}
 	end
 
-	def total_price
-		@items.inject(0) { |sum, item| sum + item.total_price }
+	def total_price 
+		available_items.inject(0) { |sum, item| sum + item.total_price } 
 	end
 end

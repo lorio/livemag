@@ -15,6 +15,10 @@ class CartItem
 		@item.find.product_id
 	end
 
+	def product
+		Product.find(product_id) rescue nil
+	end
+
 	def total_price
 		product.price * quantity
 	end
