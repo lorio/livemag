@@ -22,7 +22,7 @@ gem 'haml-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'puma'
-gem 'devise'
+gem 'devise', '3.2.4'
 gem 'country_select'
 
 group :test do

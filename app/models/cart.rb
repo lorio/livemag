@@ -35,21 +35,18 @@ class Cart
 	end
 
 	def serialize
-		if items.present?
-			items = @items.map do |item|
-				{
-					"product_id" => item.product_id,
-					"quantity" => item.quantity
-				}
-			end
+		items = @items.map do |item|
+			{
+				"product_id" => item.product_id,
+				"quantity" => item.quantity
+			}
 		end
-
 		{		
-				"items" => items
+			"items" => items
 		}
 	end
 
 	def total_price
-		@items.inject(1) { |sum, item| sum + item.total_price }
+		@items.inject(0) { |sum, item| sum + item.total_price }
 	end
 end

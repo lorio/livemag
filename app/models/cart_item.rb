@@ -11,8 +11,8 @@ class CartItem
 		@quantity = @quantity + 1
 	end
 
-	def product
-		Product.find(item.product_id)
+	def item
+		@item.find.product_id
 	end
 
 	def total_price
