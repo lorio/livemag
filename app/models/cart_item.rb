@@ -12,7 +12,7 @@ class CartItem
 	end
 
 	def item
-		@item.find.product_id
+		@item.find.product_id 
 	end
 
 	def product
