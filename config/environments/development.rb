@@ -41,4 +41,8 @@ Livemag::Application.configure do
     enable_starttls_auto: false,
     ssl: true
   }
+  Braintree::Configuration.environment = :sandbox
+  Braintree::Configuration.merchant_id = "5vg5ztz995m7v3g6"
+  Braintree::Configuration.public_key = "r8bj84ftg33zq28v"
+  Braintree::Configuration.private_key = "a8366be0c01438b16f81a2bf805115ad"
 end

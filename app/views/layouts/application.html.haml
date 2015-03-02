@@ -4,6 +4,8 @@
     %title Livemag
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
+    = javascript_include_tag
+    %script{:src => "https://js.braintreegateway.com/v2/braintree.js"}
     = csrf_meta_tags
   %body
     = render 'nav'
